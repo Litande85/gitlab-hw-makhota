@@ -36,6 +36,7 @@
 
 1. Развернула Gitlab локально, используя Yandex Cloud
  ![img223437](img-hw/img223437.png)
+ ![Img225622](img-hw/Img225622.png)
 2. 
 
 ---
