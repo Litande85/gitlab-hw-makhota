@@ -38,7 +38,12 @@
 
  ![img223437](img-hw/img223437.png)
  
+ Вошла под root с паролем
+   sudo cat /etc/gitlab/initial_root_password
+ 
+ Создала пользователя, сменила пароль 
  ![Img225622](img-hw/Img225622.png)
+ 
 2. Создала новый проект и пустой репозиторий в нём.
 
  ![Img230305](img-hw/Img230305.png)
