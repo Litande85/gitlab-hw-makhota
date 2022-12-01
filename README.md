@@ -85,7 +85,7 @@ sudo cat /etc/gitlab/initial_root_password
      gitlab/gitlab-runner:latest
 ```
 
- ![Img1](img-hw/Img1.png)
+ ![img1](img-hw/img1.png)
 
 
  ![Img001237](img-hw/Img001237.png)
