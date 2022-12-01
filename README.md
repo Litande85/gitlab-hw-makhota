@@ -34,7 +34,64 @@
 
 ### *Ответ к Заданию 1.* 
 
-1.
+1. Развернула Gitlab локально, используя Yandex Cloud
+
+ ![img223437](img-hw/img223437.png)
+ 
+ Вошла под root с паролем
+ 
+ ```bash
+sudo cat /etc/gitlab/initial_root_password
+```
+ 
+ Создала пользователя, сменила пароль 
+ ![Img225622](img-hw/Img225622.png)
+ 
+2. Создала новый проект и пустой репозиторий в нём.
+
+ ![Img230305](img-hw/Img230305.png)
+
+3. Зарегистрировала gitlab-runner глобально, чтоб мог использоваться и в этом и в других проектах
+
+Скачала несколько images
+```bash
+ # pull some images in advance
+    docker pull gitlab/gitlab-runner:latest
+    docker pull sonarsource/sonar-scanner-cli:latest
+    docker pull golang:1.17
+    docker pull docker:latest
+```
+
+Регистрация раннера:
+```bash
+   docker run -ti --rm --name gitlab-runner \
+     --network host \
+     -v /srv/gitlab-runner/config:/etc/gitlab-runner \
+     -v /var/run/docker.sock:/var/run/docker.sock \
+     gitlab/gitlab-runner:latest register
+```
+
+Конфигурация раннера для docker-in-docker:
+```yaml
+    volumes = ["/cache", "/var/run/docker.sock:/var/run/docker.sock"]
+```
+
+Запуск:
+```bash
+   docker run -d --name gitlab-runner --restart always \
+     --network host \
+     -v /srv/gitlab-runner/config:/etc/gitlab-runner \
+     -v /var/run/docker.sock:/var/run/docker.sock \
+     gitlab/gitlab-runner:latest
+```
+
+ ![Img1](img-hw/Img1.png)
+
+
+ ![Img001237](img-hw/Img001237.png)
+ 
+ 
+ ![Img001416](img-hw/Img001416.png)
 
 ---
 
