@@ -114,6 +114,38 @@ sudo cat /etc/gitlab/initial_root_password
 
 ![img2](img-hw/img2.png)
 
+2. Создала .gitlab-ci.yml
+
+```yaml
+   stages:
+  - test
+  - build
+
+test:
+  stage: test
+  tags: 
+      - docker
+  image: golang:1.17
+  script: 
+   - go test .
+
+build:
+  stage: build
+  tags: 
+      - docker
+  image: docker:latest
+  script:
+   - docker build .
+
+```
+
+![Screenshot_20221203_000100](img-hw/Screenshot_20221203_000100.png)
+
+Pipeline успешно отработал
+
+![Screenshot_20221203_000538.png](img-hw/Screenshot_20221203_000538.png)
+
+
 ---
 ## Дополнительные задания (со звездочкой*)
 
