@@ -8,7 +8,7 @@ test:
       - docker
   image: golang:1.17
   script: 
-   - go test ./dvps-materials-gitlab
+   - go test .
 
 build:
   stage: build
@@ -16,4 +16,4 @@ build:
       - docker
   image: docker:latest
   script:
-   - docker build ./sdvps-materials-gitlab
+   - docker build .
