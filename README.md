@@ -117,7 +117,7 @@ sudo cat /etc/gitlab/initial_root_password
 2. Создала .gitlab-ci.yml
 
 ```yaml
-   stages:
+stages:
   - test
   - build
 
