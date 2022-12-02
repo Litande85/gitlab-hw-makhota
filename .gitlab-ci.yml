@@ -4,12 +4,14 @@ stages:
 
 test:
   stage: test
+  tag: docker
   image: golang:1.17
   script: 
    - go test ./dvps-materials-gitlab
 
 build:
   stage: build
+  tag: docker
   image: docker:latest
   script:
    - docker build ./sdvps-materials-gitlab
