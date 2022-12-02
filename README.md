@@ -163,5 +163,63 @@ Pipeline успешно отработал
 
 ### *Ответ к Заданию 3.*
 
-1.
+1.Этап сборки запускаетя сразу, не дожидаясь результатов тестов
 
+https://gitlab.com/gitlab-org/gitlab/-/issues/30631
+
+```yaml
+stages:
+  - test
+  - build
+
+test:
+  stage: test
+  tags: 
+      - docker
+  image: golang:1.17
+  script: 
+   - go test .
+
+build:
+  stage: build
+  tags: 
+      - docker
+  image: docker:latest
+  script:
+   - docker build .
+  needs: []
+
+```
+
+ 2. тесты запускаются только при изменении файлов с расширением *.go.
+
+https://docs.gitlab.com/ee/ci/yaml/#only--except
+
+```yaml
+stages:
+  - test
+  - build
+
+test:
+  stage: test
+  tags: 
+      - docker
+  image: golang:1.17
+  script: 
+   - go test .
+  only:
+      changes:
+          - "**/*.go"
+
+build:
+  stage: build
+  tags: 
+      - docker
+  image: docker:latest
+  script:
+   - docker build .
+  needs: []
+
+```
+
+![Screenshot_20221203_003610.png](img-hw/Screenshot_20221203_003610.png)
