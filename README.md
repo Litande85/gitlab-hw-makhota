@@ -109,7 +109,8 @@ sudo cat /etc/gitlab/initial_root_password
 
 ### *Ответ к Заданию 2.*
 
-1. Запушила [репозиторий](http://51.250.12.82/Makhota/project01/-/tree/main) на GitLab
+1. Запушила [репозиторий](http://51.250.12.82/Makhota/project01/-/tree/main) на GitLab.
+
 Изменила origin, добавила оба репозитория для push и для githab и для gitlab
 
 ![img2](img-hw/img2.png)
